@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="700" height="700" viewBox="0 0 700 700">
+<path d="M350 30 C530 30 665 165 665 345 C665 530 530 670 350 670 C170 670 35 530 35 345 C35 165 170 30 350 30Z" fill="#f5e1e0" stroke="#7d2630" stroke-width="20"/><path d="M350 105 C490 105 590 210 590 350 C590 490 490 595 350 595 C210 595 110 490 110 350 C110 210 210 105 350 105Z" fill="white" stroke="#c89a4b" stroke-width="7"/>
+<text x="350" y="185" text-anchor="middle" font-size="42" fill="#587344">✿ ❧ ✿</text>
+<text x="350" y="285" text-anchor="middle" font-family="Georgia,serif" font-size="42" font-weight="bold" fill="#7d2630">MYSURU</text>
+<text x="350" y="355" text-anchor="middle" font-family="Georgia,serif" font-size="58" font-weight="bold" fill="#7d2630">STAR</text>
+<text x="350" y="410" text-anchor="middle" font-family="Georgia,serif" font-size="34" font-weight="bold" fill="#3d1820">MITHRA ✦</text>
+<text x="350" y="475" text-anchor="middle" font-size="64" fill="#c89a4b">❧</text>
+<text x="350" y="545" text-anchor="middle" font-family="Georgia,serif" font-size="20" letter-spacing="3" fill="#587344">MYSURU MITHRA</text>
+</svg>

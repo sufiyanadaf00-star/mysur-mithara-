@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mysuru Mithra | Taste • Rate • Share</title>
+<link rel="stylesheet" href="style_updated.css">
+</head>
+<body>
+<div class="page">
+  <div class="background-food background-left"><img src="avalaki.png" alt=""></div>
+  <div class="background-food background-right"><img src="rose.png" alt=""></div>
+
+  <header class="hero">
+    <div class="logo-wrap"><img src="logo.png" alt="Mysuru Mithra Logo" class="logo"></div>
+    <p class="team-label">TEAM PM PIONEER • STUDENT FEEDBACK</p>
+    <h1>Welcome to</h1>
+    <h2>Mysuru Mithra</h2>
+    <p class="tagline">A Bite of Tradition, A Touch of Sweetness</p>
+    <div class="decorative-line"><span>❧</span><b>♥</b><span>❧</span></div>
+    <p class="intro-text">We would love to know how you liked our dishes.<br>Please choose a dish to rate your experience.</p>
+  </header>
+
+  <main>
+    <section class="dish-section">
+      <div class="section-heading">
+        <p class="small-heading">❧ &nbsp; OUR SPECIALS &nbsp; ❧</p>
+        <h3>Choose a Dish to Rate</h3>
+        <p>Taste it. Rate it. Tell us what you think.</p>
+      </div>
+      <div class="dish-container">
+        <article class="dish-card avalakki-card">
+          <div class="dish-image-container"><img src="avalaki.png" alt="Mysuru Avalakki" class="dish-image"></div>
+          <div class="dish-content">
+            <p class="dish-category green-text">TRADITIONAL SAVOURY</p>
+            <h3>Mysuru<br>Avalakki</h3>
+            <div class="mini-line green-line">♥</div>
+            <p class="dish-description">A classic blend of tradition and taste, prepared with fresh flavours and a delicious crunchy finish.</p>
+            <button class="rate-button green-button" onclick="openRating('Mysuru Avalakki')">RATE NOW <span>→</span></button>
+          </div>
+        </article>
+        <article class="dish-card mithaas-card">
+          <div class="dish-image-container"><img src="rose.png" alt="Rose Mithaas" class="dish-image"></div>
+          <div class="dish-content">
+            <p class="dish-category red-text">SIGNATURE SWEET</p>
+            <h3>Rose<br>Mithaas</h3>
+            <div class="mini-line red-line">♥</div>
+            <p class="dish-description">A delicate sweet treat made with rich flavours and traditional sweetness.</p>
+            <button class="rate-button red-button" onclick="openRating('Rose Mithaas')">RATE NOW <span>→</span></button>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="live-rating-section">
+      <div class="rating-heading">
+        <p>❧ &nbsp; LIVE FEEDBACK &nbsp; ❧</p>
+        <h2>What Students Think</h2>
+        <span>Ratings update automatically after feedback is saved.</span>
+      </div>
+      <div class="rating-container">
+        <div class="rating-card">
+          <div class="rating-dish"><img src="avalaki.png" alt="Mysuru Avalakki"><div><h3>Mysuru Avalakki</h3><div class="stars">★★★★★</div></div></div>
+          <div class="rating-score"><strong id="avalakkiAverage">—</strong><span>/ 5</span></div>
+          <p id="avalakkiCount">No ratings yet</p>
+        </div>
+        <div class="rating-card">
+          <div class="rating-dish"><img src="rose.png" alt="Rose Mithaas"><div><h3>Rose Mithaas</h3><div class="stars">★★★★★</div></div></div>
+          <div class="rating-score"><strong id="mithaasAverage">—</strong><span>/ 5</span></div>
+          <p id="mithaasCount">No ratings yet</p>
+        </div>
+      </div>
+      <button class="view-rating-button" type="button" onclick="openDashboardInfo()">VIEW ALL RATINGS &amp; REVIEWS <span>↗</span></button>
+    </section>
+
+    <a href="journey.html" class="explore-journey-button">MEET OUR TEAM <span>→</span></a>
+    <section class="thank-you"><div class="thank-you-line">❧ ♥ ❧</div><h2>Thank You for Your Time &amp; Feedback!</h2></section>
+  </main>
+
+  <footer><p>© 2026 Mysuru Mithra • Team PM Pioneer</p><p>Plan • Manage • Deliver • Delight</p></footer>
+</div>
+
+<div class="rating-modal" id="ratingModal">
+  <div class="rating-box">
+    <button class="close-rating" onclick="closeRating()">×</button>
+    <img id="ratingDishImage" src="" alt="Dish">
+    <h2 id="ratingDishName">Mysuru Avalakki</h2>
+    <p class="rating-question">How did you like this dish?</p>
+    <label class="feedback-name-label">Your Name
+      <input id="feedbackName" type="text" maxlength="80" placeholder="Enter your name" autocomplete="name">
+    </label>
+    <div class="star-rating">
+      <button type="button" onclick="selectStar(1)">★</button>
+      <button type="button" onclick="selectStar(2)">★</button>
+      <button type="button" onclick="selectStar(3)">★</button>
+      <button type="button" onclick="selectStar(4)">★</button>
+      <button type="button" onclick="selectStar(5)">★</button>
+    </div>
+    <p id="selectedRating">Select your rating</p>
+    <textarea id="reviewText" placeholder="Tell us what you think (optional)" maxlength="250"></textarea>
+    <button class="submit-rating" id="submitRatingButton" onclick="submitRating()">SUBMIT RATING</button>
+    <p id="ratingStatus" class="rating-status"></p>
+  </div>
+</div>
+
+<div class="rating-modal" id="dashboardInfoModal">
+  <div class="rating-box">
+    <button class="close-rating" onclick="closeDashboardInfo()">×</button>
+    <div class="mini-line red-line">♥</div>
+    <h2>Team Feedback</h2>
+    <p class="rating-question">All student feedback is stored in the private team dashboard.</p>
+    <a class="submit-rating dashboard-link" href="admin.html">OPEN TEAM DASHBOARD →</a>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="config.js"></script>
+<script src="script_updated.js"></script>
+</body>
+</html>

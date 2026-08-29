@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="700" height="700" viewBox="0 0 700 700">
+<path d="M350 25 L650 200 L650 500 L350 675 L50 500 L50 200 Z" fill="#efe7d6" stroke="#587344" stroke-width="18" stroke-linejoin="round"/><circle cx="350" cy="350" r="225" fill="white" stroke="#c89a4b" stroke-width="7"/>
+<text x="350" y="185" text-anchor="middle" font-size="44" fill="#c89a4b">★</text>
+<text x="350" y="285" text-anchor="middle" font-family="Georgia,serif" font-size="42" font-weight="bold" fill="#587344">ROSE</text>
+<text x="350" y="355" text-anchor="middle" font-family="Georgia,serif" font-size="58" font-weight="bold" fill="#7d2630">MITHAAS</text>
+<text x="350" y="410" text-anchor="middle" font-family="Georgia,serif" font-size="34" font-weight="bold" fill="#3d1820">♥ SWEETNESS ♥</text>
+<text x="350" y="475" text-anchor="middle" font-size="64" fill="#7d2630">★</text>
+<text x="350" y="545" text-anchor="middle" font-family="Georgia,serif" font-size="20" letter-spacing="3" fill="#587344">MYSURU MITHRA</text>
+</svg>

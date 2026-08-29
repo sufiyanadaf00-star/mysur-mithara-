@@ -1,0 +1,13 @@
+MYSURU MITHRA — START HERE
+
+1. Unzip this folder.
+2. Open config.js and add your Supabase Project URL + Publishable/anon key.
+3. In Supabase SQL Editor, run supabase_setup.sql.
+4. Create your team/admin email + password in Supabase Authentication.
+5. Host the WHOLE folder. The QR code must point to the hosted index.html.
+6. Test one rating on index.html.
+7. Open admin.html on your phone and log in — all feedback records will be there.
+8. Use qr-maker.html after hosting: paste your public index.html URL and generate the QR.
+
+Do not put a Supabase secret/service_role key in config.js.
+Keep all files/folders together, including stickers/.

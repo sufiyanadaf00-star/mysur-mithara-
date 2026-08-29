@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="700" height="700" viewBox="0 0 700 700">
+<rect x="30" y="30" width="640" height="640" rx="150" fill="#f4d8c7" stroke="#c89a4b" stroke-width="20"/><rect x="95" y="95" width="510" height="510" rx="115" fill="white" stroke="#c89a4b" stroke-width="7"/>
+<path d="M265 205 Q350 135 435 205" fill="none" stroke="#c89a4b" stroke-width="8"/><circle cx="350" cy="175" r="12" fill="#c89a4b"/>
+<text x="350" y="285" text-anchor="middle" font-family="Georgia,serif" font-size="42" font-weight="bold" fill="#c89a4b">ROYAL</text>
+<text x="350" y="355" text-anchor="middle" font-family="Georgia,serif" font-size="58" font-weight="bold" fill="#7d2630">MYSURU</text>
+<text x="350" y="410" text-anchor="middle" font-family="Georgia,serif" font-size="34" font-weight="bold" fill="#3d1820">MITHRA</text>
+<text x="350" y="475" text-anchor="middle" font-size="68" fill="#7d2630">✦</text>
+<text x="350" y="545" text-anchor="middle" font-family="Georgia,serif" font-size="20" letter-spacing="3" fill="#587344">MYSURU MITHRA</text>
+</svg>
