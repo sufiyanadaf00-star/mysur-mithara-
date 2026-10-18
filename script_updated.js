@@ -189,19 +189,12 @@
     const RATING_STICKERS={5:"sticker14_gold-star",4:"sticker7_sweet-heart",3:"sticker13_namaste",2:"sticker2",1:"sticker2"};
     const grid=$("reviewsGrid"), countEl=$("reviewsCount"), summaryEl=$("reviewsSummary");
     let reviews=[], starFilter="all", dishFilter="all", loading=false;
-    const rtf=window.Intl&&Intl.RelativeTimeFormat?new Intl.RelativeTimeFormat("en",{numeric:"auto"}):null;
-    const timeAgo=iso=>{
-      const d=new Date(iso), s=(d-Date.now())/1000;
-      if(!rtf||isNaN(s))return d.toLocaleDateString();
-      for(const [unit,sec] of [["year",31536000],["month",2592000],["week",604800],["day",86400],["hour",3600],["minute",60]])if(Math.abs(s)>=sec)return rtf.format(Math.round(s/sec),unit);
-      return "just now";
-    };
     const dishKey=d=>d==="Rose Mithaas"?"rose":"avalakki";
     const reviewCard=(r,i)=>{
       const n=Math.max(1,Math.min(5,Math.round(Number(r.rating))||1)), name=r.first_name||"Student";
       return `<article class="review-card is-${dishKey(r.dish)}" style="--i:${Math.min(i,8)}">
         <img class="review-stamp" src="stickers/whatsapp/${RATING_STICKERS[n]}.webp" alt="" width="512" height="512" loading="lazy">
-        <div class="review-head"><span class="review-avatar" aria-hidden="true">${escapeHtml(name.charAt(0).toUpperCase())}</span><div><h3 class="review-name">${escapeHtml(name)}</h3><p class="review-time"><time datetime="${escapeHtml(r.created_at)}">${escapeHtml(timeAgo(r.created_at))}</time></p></div></div>
+        <div class="review-head"><span class="review-avatar" aria-hidden="true">${escapeHtml(name.charAt(0).toUpperCase())}</span><div><h3 class="review-name">${escapeHtml(name)}</h3></div></div>
         <p class="review-stars" role="img" aria-label="${n} out of 5 stars"><span>${"★".repeat(n)}</span><span class="off">${"★".repeat(5-n)}</span></p>
         <p class="review-dish"><img src="${DISH_IMAGES[r.dish]||"avalaki.webp"}" alt="" width="28" height="28" loading="lazy">${escapeHtml(r.dish)}</p>
         ${r.review?`<blockquote class="review-text">${escapeHtml(r.review)}</blockquote>`:`<p class="review-text is-empty">Rated without a written review.</p>`}

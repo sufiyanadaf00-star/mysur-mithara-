@@ -53,7 +53,7 @@
     const rows=allRows.filter(x=>starFilter==="all"||String(x.rating)===starFilter)
       .sort(sortBy==="rating"?(a,b)=>Number(b.rating)-Number(a.rating)||byDate(a,b):byDate);
     const empty=allRows.length?`No ${starFilter}-star feedback yet.`:"No feedback yet.";
-    $("rows").innerHTML=rows.map(x=>`<tr data-id="${esc(x.id)}"><td>${new Date(x.created_at).toLocaleString()}</td><td>${esc(x.name)}</td><td>${esc(x.dish)}</td><td aria-label="${Number(x.rating)} out of 5">${"★".repeat(Number(x.rating))}</td><td class="review-cell">${esc(x.review||"")}</td><td class="row-actions"><button class="row-delete" type="button" data-delete="${esc(x.id)}" aria-label="Delete feedback from ${esc(x.name)}">${TRASH_ICON}DELETE</button></td></tr>`).join("")||`<tr><td colspan="6">${esc(empty)}</td></tr>`;
+    $("rows").innerHTML=rows.map(x=>`<tr data-id="${esc(x.id)}"><td>${new Date(x.created_at).toLocaleDateString()}</td><td>${esc(x.name)}</td><td>${esc(x.dish)}</td><td aria-label="${Number(x.rating)} out of 5">${"★".repeat(Number(x.rating))}</td><td class="review-cell">${esc(x.review||"")}</td><td class="row-actions"><button class="row-delete" type="button" data-delete="${esc(x.id)}" aria-label="Delete feedback from ${esc(x.name)}">${TRASH_ICON}DELETE</button></td></tr>`).join("")||`<tr><td colspan="6">${esc(empty)}</td></tr>`;
   }
   $("adminStarFilters").addEventListener("click",e=>{const b=e.target.closest("[data-stars]");if(b){starFilter=b.dataset.stars;renderTable()}});
   $("adminSort").addEventListener("change",e=>{sortBy=e.target.value;renderTable()});
@@ -74,9 +74,18 @@
     }finally{btn.disabled=false}
   }
 
+  // Deleting needs supabase_security_and_admin.sql to have been run AND this account to be on its admin
+  // list. Without either, the database quietly deletes 0 rows, so say which one is missing up front.
+  async function checkAccess(email){
+    const {data,error}=await db.rpc("is_team_admin");
+    const msg=error?(error.code==="PGRST202"?`Deleting is switched off because the database's admin rules haven't been set up. ${SQL_HINT}`:"")
+      :data===true?"":`${email} is not on the team admin list, so it can't see or delete feedback. Add it to is_team_admin() in supabase_security_and_admin.sql and run the file again.`;
+    $("accessWarning").textContent=msg;$("accessWarning").classList.toggle("hidden",!msg);
+  }
+
   async function show(){
     const {data}=await db.auth.getSession();
-    if(data.session){$("loginCard").classList.add("hidden");$("dash").classList.remove("hidden");await load()}
+    if(data.session){$("loginCard").classList.add("hidden");$("dash").classList.remove("hidden");await Promise.all([load(),checkAccess(data.session.user.email)])}
   }
 
   // DELETE: confirm first, then check rows really went (row security turns a blocked delete into "0 rows").

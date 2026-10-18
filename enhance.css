@@ -2899,11 +2899,6 @@ dialog.reviews-dialog::backdrop {
     overflow-wrap: anywhere;
 }
 
-.review-time {
-    color: #8b6a4d;
-    font-size: .75rem;
-}
-
 .review-stars {
     margin-top: 12px;
     font-size: 1.125rem;

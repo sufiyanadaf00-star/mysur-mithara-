@@ -11,7 +11,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap">
 <link rel="stylesheet" href="style_updated.css?v=20261018b">
-<link rel="stylesheet" href="enhance.css?v=20261018b">
+<link rel="stylesheet" href="enhance.css?v=20261018c">
 <style>
 .admin-page{max-width:900px;margin:0 auto;background:#f8edda;min-height:100vh;padding:25px 16px 50px}.admin-card{background:#fff7e7;border:1px solid #d4a45a;border-radius:22px;padding:22px;box-shadow:0 5px 14px rgba(75,40,15,.09);margin-top:18px}.admin-logo{display:block;width:180px;max-width:70%;height:auto;margin:0 auto}.admin-title{text-align:center;color:#713b20;font-family:"Playfair Display",Georgia,serif}.admin-input{width:100%;padding:12px;border:1px solid #d5a04a;border-radius:18px;margin:7px 0;background:white}.admin-btn{border:0;border-radius:20px;padding:11px 18px;background:#713b20;color:#fff8e9;font-weight:700;cursor:pointer}.admin-btn.secondary{background:#fff;border:1px solid #c99439;color:#713b20}.admin-row{display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap}.admin-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.stat{padding:16px;text-align:center;background:#fffaf0;border:1px solid #d8b06a;border-radius:16px}.stat b{display:block;font-size:26px;color:#713b20}.table-wrap{overflow:auto}.feedback-table{width:100%;border-collapse:collapse;font-size:12px}.feedback-table th,.feedback-table td{padding:10px;border-bottom:1px solid #decfb8;text-align:left;vertical-align:top}.feedback-table th{color:#713b20}.private-note{text-align:center;color:#765538;font-size:11px}.hidden{display:none!important}@media(max-width:600px){.admin-stats{grid-template-columns:1fr}.feedback-table{font-size:11px}}
 .admin-title{margin-top:10px;font-size:clamp(1.5rem,1.2rem + 1.5vw,2.25rem);line-height:1.15;letter-spacing:.04em}
@@ -58,10 +58,11 @@
 .dialog-status{min-height:1.4em;margin-top:10px;font-size:.875rem}
 .delete-summary{margin:12px 0 4px;padding:12px 14px;border:1px solid #e3c9a3;border-radius:14px;background:#fffaf0;font-size:.875rem;line-height:1.5}
 .delete-warning{color:#9b2a37;font-size:.8125rem;font-weight:600}
+.access-warning{margin:0 0 14px;padding:12px 14px;border:1px solid rgba(179,49,64,.35);border-radius:14px;background:#fff1f0;color:#9b2a37;font-size:.875rem;font-weight:600;line-height:1.5}
 </style>
 <script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script defer src="config.js?v=20261018b"></script>
-<script defer src="admin.js?v=20261018b"></script>
+<script defer src="config.js?v=20261018c"></script>
+<script defer src="admin.js?v=20261018c"></script>
 </head>
 <body>
 <main class="admin-page">
@@ -84,6 +85,7 @@
   <section class="admin-card hidden" id="dash" aria-labelledby="dashHeading">
     <div class="admin-row"><h2 id="dashHeading">Feedback Records</h2><div class="admin-actions"><button class="admin-btn secondary" id="refreshBtn" type="button">REFRESH</button><button class="admin-btn secondary" id="logoutBtn" type="button">LOG OUT</button></div></div>
     <p class="dash-status" id="dashStatus" role="status"></p>
+    <p class="access-warning hidden" id="accessWarning" role="alert"></p>
     <div class="admin-stats" id="stats"></div>
     <div class="admin-filters">
       <div class="filter-row" role="group" aria-label="Filter by stars" id="adminStarFilters">
