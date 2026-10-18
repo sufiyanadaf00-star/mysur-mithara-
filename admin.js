@@ -53,7 +53,7 @@
     const rows=allRows.filter(x=>starFilter==="all"||String(x.rating)===starFilter)
       .sort(sortBy==="rating"?(a,b)=>Number(b.rating)-Number(a.rating)||byDate(a,b):byDate);
     const empty=allRows.length?`No ${starFilter}-star feedback yet.`:"No feedback yet.";
-    $("rows").innerHTML=rows.map(x=>`<tr data-id="${esc(x.id)}"><td>${new Date(x.created_at).toLocaleDateString()}</td><td>${esc(x.name)}</td><td>${esc(x.dish)}</td><td aria-label="${Number(x.rating)} out of 5">${"★".repeat(Number(x.rating))}</td><td class="review-cell">${esc(x.review||"")}</td><td class="row-actions"><button class="row-delete" type="button" data-delete="${esc(x.id)}" aria-label="Delete feedback from ${esc(x.name)}">${TRASH_ICON}DELETE</button></td></tr>`).join("")||`<tr><td colspan="6">${esc(empty)}</td></tr>`;
+    $("rows").innerHTML=rows.map(x=>`<tr data-id="${esc(x.id)}"><td>${esc(x.name)}</td><td>${esc(x.dish)}</td><td aria-label="${Number(x.rating)} out of 5">${"★".repeat(Number(x.rating))}</td><td class="review-cell">${esc(x.review||"")}</td><td class="row-actions"><button class="row-delete" type="button" data-delete="${esc(x.id)}" aria-label="Delete feedback from ${esc(x.name)}">${TRASH_ICON}DELETE</button></td></tr>`).join("")||`<tr><td colspan="5">${esc(empty)}</td></tr>`;
   }
   $("adminStarFilters").addEventListener("click",e=>{const b=e.target.closest("[data-stars]");if(b){starFilter=b.dataset.stars;renderTable()}});
   $("adminSort").addEventListener("change",e=>{sortBy=e.target.value;renderTable()});
@@ -69,7 +69,7 @@
     }catch(err){
       console.error(err);
       if(await handleSessionError(err))return;
-      $("rows").innerHTML=`<tr><td colspan="6">${esc(isNetworkError(err)?"Couldn't reach the server. Check your connection and press Refresh.":(err.message||"Could not load feedback."))}</td></tr>`;
+      $("rows").innerHTML=`<tr><td colspan="5">${esc(isNetworkError(err)?"Couldn't reach the server. Check your connection and press Refresh.":(err.message||"Could not load feedback."))}</td></tr>`;
       setStatus($("dashStatus"),"Could not load feedback.",true);
     }finally{btn.disabled=false}
   }

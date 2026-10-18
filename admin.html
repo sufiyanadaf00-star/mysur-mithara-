@@ -28,7 +28,7 @@
 .admin-stats{margin:14px 0 6px}
 .stat{font-size:.75rem;font-weight:700;letter-spacing:.08em;color:#765538}
 .feedback-table{font-size:.8125rem}
-.feedback-table td:nth-child(4){color:#c58a12;white-space:nowrap}
+.feedback-table td:nth-child(3){color:#c58a12;white-space:nowrap}
 @media(min-width:600px){#loginBtn{width:auto}}
 .admin-card{border-color:#e3c9a3;box-shadow:0 2px 4px rgba(60,30,10,.06),0 12px 28px rgba(60,30,10,.1)}
 .stat{border-top:3px solid #713b20;border-radius:14px}
@@ -62,7 +62,7 @@
 </style>
 <script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script defer src="config.js?v=20261018c"></script>
-<script defer src="admin.js?v=20261018c"></script>
+<script defer src="admin.js?v=20261018d"></script>
 </head>
 <body>
 <main class="admin-page">
@@ -103,7 +103,7 @@
     <div class="table-wrap" tabindex="0" role="region" aria-label="Feedback records">
       <table class="feedback-table">
         <caption class="sr-only">Student feedback, newest first</caption>
-        <thead><tr><th scope="col">Date</th><th scope="col">Name</th><th scope="col">Dish</th><th scope="col">Rating</th><th scope="col">Review</th><th scope="col"><span class="sr-only">Actions</span></th></tr></thead>
+        <thead><tr><th scope="col">Name</th><th scope="col">Dish</th><th scope="col">Rating</th><th scope="col">Review</th><th scope="col"><span class="sr-only">Actions</span></th></tr></thead>
         <tbody id="rows"></tbody>
       </table>
     </div>
