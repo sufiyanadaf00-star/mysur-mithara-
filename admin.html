@@ -1,3 +1,122 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Mysuru Mithra | Team Feedback</title><link rel="stylesheet" href="style_updated.css"><style>
-.admin-page{max-width:900px;margin:0 auto;background:#f8edda;min-height:100vh;padding:25px 16px 50px}.admin-card{background:#fff7e7;border:1px solid #d4a45a;border-radius:22px;padding:22px;box-shadow:0 5px 14px rgba(75,40,15,.09);margin-top:18px}.admin-logo{display:block;width:180px;max-width:70%;margin:0 auto}.admin-title{text-align:center;color:#713b20;font-family:"Playfair Display",Georgia,serif}.admin-input{width:100%;padding:12px;border:1px solid #d5a04a;border-radius:18px;margin:7px 0;background:white}.admin-btn{border:0;border-radius:20px;padding:11px 18px;background:#713b20;color:#fff8e9;font-weight:700;cursor:pointer}.admin-btn.secondary{background:#fff;border:1px solid #c99439;color:#713b20}.admin-row{display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap}.admin-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.stat{padding:16px;text-align:center;background:#fffaf0;border:1px solid #d8b06a;border-radius:16px}.stat b{display:block;font-size:26px;color:#713b20}.table-wrap{overflow:auto}.feedback-table{width:100%;border-collapse:collapse;font-size:12px}.feedback-table th,.feedback-table td{padding:10px;border-bottom:1px solid #decfb8;text-align:left;vertical-align:top}.feedback-table th{color:#713b20}.private-note{text-align:center;color:#765538;font-size:11px}.hidden{display:none!important}@media(max-width:600px){.admin-stats{grid-template-columns:1fr}.feedback-table{font-size:11px}}
-</style></head><body><main class="admin-page"><a href="index.html"><img src="logo.png" class="admin-logo" alt="Mysuru Mithra"></a><h1 class="admin-title">TEAM FEEDBACK DASHBOARD</h1><p class="private-note">Private view — only your authenticated team account can see student records.</p><section class="admin-card" id="loginCard"><h2>Team Login</h2><input class="admin-input" id="email" type="email" placeholder="Team email"><input class="admin-input" id="password" type="password" placeholder="Password"><button class="admin-btn" id="loginBtn">LOGIN</button><p id="loginStatus"></p></section><section class="admin-card hidden" id="dash"><div class="admin-row"><h2>Feedback Records</h2><div><button class="admin-btn secondary" id="refreshBtn">REFRESH</button> <button class="admin-btn secondary" id="logoutBtn">LOG OUT</button></div></div><div class="admin-stats" id="stats"></div><div class="table-wrap"><table class="feedback-table"><thead><tr><th>Date</th><th>Name</th><th>Dish</th><th>Rating</th><th>Review</th></tr></thead><tbody id="rows"></tbody></table></div></section></main><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="config.js"></script><script src="admin.js"></script></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>Mysuru Mithra | Team Feedback</title>
+<meta name="theme-color" content="#4b2816">
+<link rel="icon" href="favicon.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap">
+<link rel="stylesheet" href="style_updated.css?v=20261018b">
+<link rel="stylesheet" href="enhance.css?v=20261018b">
+<style>
+.admin-page{max-width:900px;margin:0 auto;background:#f8edda;min-height:100vh;padding:25px 16px 50px}.admin-card{background:#fff7e7;border:1px solid #d4a45a;border-radius:22px;padding:22px;box-shadow:0 5px 14px rgba(75,40,15,.09);margin-top:18px}.admin-logo{display:block;width:180px;max-width:70%;height:auto;margin:0 auto}.admin-title{text-align:center;color:#713b20;font-family:"Playfair Display",Georgia,serif}.admin-input{width:100%;padding:12px;border:1px solid #d5a04a;border-radius:18px;margin:7px 0;background:white}.admin-btn{border:0;border-radius:20px;padding:11px 18px;background:#713b20;color:#fff8e9;font-weight:700;cursor:pointer}.admin-btn.secondary{background:#fff;border:1px solid #c99439;color:#713b20}.admin-row{display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap}.admin-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.stat{padding:16px;text-align:center;background:#fffaf0;border:1px solid #d8b06a;border-radius:16px}.stat b{display:block;font-size:26px;color:#713b20}.table-wrap{overflow:auto}.feedback-table{width:100%;border-collapse:collapse;font-size:12px}.feedback-table th,.feedback-table td{padding:10px;border-bottom:1px solid #decfb8;text-align:left;vertical-align:top}.feedback-table th{color:#713b20}.private-note{text-align:center;color:#765538;font-size:11px}.hidden{display:none!important}@media(max-width:600px){.admin-stats{grid-template-columns:1fr}.feedback-table{font-size:11px}}
+.admin-title{margin-top:10px;font-size:clamp(1.5rem,1.2rem + 1.5vw,2.25rem);line-height:1.15;letter-spacing:.04em}
+.private-note{max-width:44ch;margin:8px auto 0;font-size:.8125rem;line-height:1.5}
+.admin-card h2{color:#4b2816;font-family:"Playfair Display",Georgia,serif;font-size:1.375rem}
+.admin-label{display:block;margin-top:14px;color:#713b20;font-size:.8125rem;font-weight:700}
+.admin-input{min-height:48px;font-size:16px}
+.admin-btn{min-height:44px;font-size:.8125rem;letter-spacing:.06em;transition:filter .16s ease,transform .16s ease}
+.admin-btn:active{transform:scale(.97)}
+.admin-btn:disabled{opacity:.6;cursor:wait}
+#loginBtn{width:100%;margin-top:14px}
+#loginStatus,.dash-status{min-height:1.4em;margin-top:12px;font-size:.875rem}
+.admin-page .is-error{color:#a12a37}
+.admin-stats{margin:14px 0 6px}
+.stat{font-size:.75rem;font-weight:700;letter-spacing:.08em;color:#765538}
+.feedback-table{font-size:.8125rem}
+.feedback-table td:nth-child(4){color:#c58a12;white-space:nowrap}
+@media(min-width:600px){#loginBtn{width:auto}}
+.admin-card{border-color:#e3c9a3;box-shadow:0 2px 4px rgba(60,30,10,.06),0 12px 28px rgba(60,30,10,.1)}
+.stat{border-top:3px solid #713b20;border-radius:14px}
+.stat:nth-child(2){border-top-color:#587529}
+.stat:nth-child(3){border-top-color:#b33140}
+.table-wrap{max-height:70vh;margin-top:8px;border:1px solid #e6d3b3;border-radius:14px}
+.feedback-table thead th{position:sticky;top:0;background:#fbf1de;font-size:.6875rem;letter-spacing:.1em;text-transform:uppercase}
+.feedback-table tbody tr:nth-child(even){background:#fffaf0}
+@media(hover:hover){.feedback-table tbody tr:hover{background:#fbefd9}}
+.feedback-table .review-cell{max-width:36ch}
+/* Toolbar and row actions */
+.admin-actions{display:flex;flex-wrap:wrap;gap:8px}
+.admin-filters{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px;margin:14px 0 4px}
+.admin-sort{display:flex;align-items:center;gap:8px;color:#713b20;font-size:.8125rem;font-weight:700}
+.admin-sort select{min-height:40px;padding:8px 36px 8px 12px;border:1px solid #d5a04a;border-radius:999px;background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%23713b20' stroke-width='2'/%3E%3C/svg%3E") no-repeat right 14px center;color:#4b2816;font:inherit;font-size:.875rem;appearance:none;cursor:pointer}
+.admin-btn.danger{background:linear-gradient(180deg,#b33140,#8e2230)}
+.admin-btn:hover:not(:disabled){filter:brightness(1.07)}
+.row-actions{width:1%;white-space:nowrap;text-align:right}
+.row-delete{display:inline-flex;align-items:center;gap:6px;min-height:36px;padding:6px 12px;border:1px solid rgba(179,49,64,.35);border-radius:999px;background:#fff;color:#9b2a37;font-size:.75rem;font-weight:700;letter-spacing:.04em;cursor:pointer;transition:background-color .16s ease,color .16s ease}
+.row-delete:hover{background:#b33140;color:#fff}
+.row-delete svg{width:14px;height:14px}
+.feedback-table tr.is-removing{opacity:.4}
+/* Dialogs reuse the site's .rating-box dialog styles, left-aligned for forms */
+.admin-dialog{text-align:left}
+.admin-dialog h2{margin:0 44px 4px 0}
+.dialog-actions{display:flex;flex-wrap:wrap;justify-content:flex-end;gap:8px;margin-top:18px}
+.dialog-status{min-height:1.4em;margin-top:10px;font-size:.875rem}
+.delete-summary{margin:12px 0 4px;padding:12px 14px;border:1px solid #e3c9a3;border-radius:14px;background:#fffaf0;font-size:.875rem;line-height:1.5}
+.delete-warning{color:#9b2a37;font-size:.8125rem;font-weight:600}
+</style>
+<script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script defer src="config.js?v=20261018b"></script>
+<script defer src="admin.js?v=20261018b"></script>
+</head>
+<body>
+<main class="admin-page">
+  <a href="index.html"><img src="logo.webp" class="admin-logo" alt="Mysuru Mithra home" width="500" height="500"></a>
+  <h1 class="admin-title">TEAM FEEDBACK DASHBOARD</h1>
+  <p class="private-note">Private view. Only your authenticated team account can see student records.</p>
+
+  <section class="admin-card" id="loginCard" aria-labelledby="loginHeading">
+    <h2 id="loginHeading">Team Login</h2>
+    <form id="loginForm" novalidate>
+      <label class="admin-label" for="email">Team email</label>
+      <input class="admin-input" id="email" type="email" placeholder="Team email" autocomplete="username" required>
+      <label class="admin-label" for="password">Password</label>
+      <input class="admin-input" id="password" type="password" placeholder="Password" autocomplete="current-password" required>
+      <button class="admin-btn" id="loginBtn" type="submit">LOGIN</button>
+    </form>
+    <p id="loginStatus" role="status"></p>
+  </section>
+
+  <section class="admin-card hidden" id="dash" aria-labelledby="dashHeading">
+    <div class="admin-row"><h2 id="dashHeading">Feedback Records</h2><div class="admin-actions"><button class="admin-btn secondary" id="refreshBtn" type="button">REFRESH</button><button class="admin-btn secondary" id="logoutBtn" type="button">LOG OUT</button></div></div>
+    <p class="dash-status" id="dashStatus" role="status"></p>
+    <div class="admin-stats" id="stats"></div>
+    <div class="admin-filters">
+      <div class="filter-row" role="group" aria-label="Filter by stars" id="adminStarFilters">
+        <button type="button" class="filter-chip" data-stars="all" aria-pressed="true">All</button>
+        <button type="button" class="filter-chip" data-stars="5" aria-pressed="false">5 ★</button>
+        <button type="button" class="filter-chip" data-stars="4" aria-pressed="false">4 ★</button>
+        <button type="button" class="filter-chip" data-stars="3" aria-pressed="false">3 ★</button>
+        <button type="button" class="filter-chip" data-stars="2" aria-pressed="false">2 ★</button>
+        <button type="button" class="filter-chip" data-stars="1" aria-pressed="false">1 ★</button>
+      </div>
+      <label class="admin-sort">Sort
+        <select id="adminSort"><option value="rating">Highest rated first</option><option value="newest">Newest first</option></select>
+      </label>
+    </div>
+    <div class="table-wrap" tabindex="0" role="region" aria-label="Feedback records">
+      <table class="feedback-table">
+        <caption class="sr-only">Student feedback, newest first</caption>
+        <thead><tr><th scope="col">Date</th><th scope="col">Name</th><th scope="col">Dish</th><th scope="col">Rating</th><th scope="col">Review</th><th scope="col"><span class="sr-only">Actions</span></th></tr></thead>
+        <tbody id="rows"></tbody>
+      </table>
+    </div>
+  </section>
+</main>
+
+<dialog class="rating-box admin-dialog" id="deleteDialog" aria-labelledby="deleteTitle" aria-describedby="deleteSummary">
+  <h2 id="deleteTitle">Delete this feedback?</h2>
+  <div class="delete-summary" id="deleteSummary"></div>
+  <p class="delete-warning">This permanently removes it from the database.</p>
+  <div class="dialog-actions">
+    <button class="admin-btn secondary" type="button" data-close>CANCEL</button>
+    <button class="admin-btn danger" type="button" id="deleteConfirm">DELETE</button>
+  </div>
+  <p class="dialog-status" id="deleteStatus" role="status"></p>
+</dialog>
+</body>
+</html>

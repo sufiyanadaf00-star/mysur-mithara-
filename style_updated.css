@@ -2,9 +2,8 @@
    MYSURU MITHRA
    ========================================================= */
 
-@import url(
-    'https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap'
-);
+/* Fonts (DM Sans, Playfair Display) are loaded with <link> tags in each page's <head>,
+   which avoids the extra render-blocking request an @import here would add. */
 
 
 /* =========================================================

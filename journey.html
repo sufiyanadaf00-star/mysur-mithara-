@@ -3,57 +3,116 @@
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mysuru Mithra | Our Journey</title>
-<link rel="stylesheet" href="style_updated.css">
+<meta name="description" content="Meet Team PM Pioneer, the people behind Mysuru Mithra, and play the Mystery Sticker games.">
+<meta name="theme-color" content="#4b2816">
+<link rel="icon" href="favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap">
+<link rel="stylesheet" href="style_updated.css?v=20261018b">
+<link rel="stylesheet" href="enhance.css?v=20261018b">
+<script>try{if(!sessionStorage.getItem("mm_splash_seen"))document.documentElement.classList.add("splash-on")}catch(e){}</script>
+<script defer src="enhance.js?v=20261018b"></script>
+<script defer src="script_updated.js?v=20261018b"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/ScrollTrigger.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/SplitText.min.js"></script>
+<script defer src="motion.js?v=20261018b"></script>
 </head>
 <body class="journey-page">
-<div class="journey-container">
-<a href="index.html" class="journey-back">←</a>
-<div class="journey-logo"><img src="logo.png" alt="Mysuru Mithra"></div>
-<header class="journey-header"><div class="journey-ornament">❧ ♥ ❧</div><h1>MEET OUR TEAM</h1><p>The people behind Mysuru Mithra <span>♥</span></p></header>
-
-<div class="team-slider-wrapper">
-<button class="team-arrow team-arrow-left" id="teamPrev" type="button" aria-label="Previous team member">←</button>
-<section class="team-slider" id="teamSlider">
-  <div class="team-slide"><div class="slide-photo"><img src="rashi.png" alt="Rashi"></div><div class="slide-intro"><h2>RASHI</h2><span>PROJECT MANAGER</span><p>Bringing the team together, coordinating ideas and guiding the project from planning to execution.</p></div></div>
-  <div class="team-slide"><div class="slide-photo"><img src="srushti.png" alt="Shrushti"></div><div class="slide-intro"><h2>SHRUSHTI</h2><span>FINANCE HEAD</span><p>Managing the financial side of the project and helping keep our plans on track.</p></div></div>
-  <div class="team-slide"><div class="slide-photo"><img src="yashashree.png" alt="Yashashree"></div><div class="slide-intro"><h2>YASHASHREE</h2><span>MARKETING HEAD</span><p>Turning our ideas into meaningful communication and helping Mysuru Mithra reach its audience.</p></div></div>
-  <div class="team-slide"><div class="slide-photo"><img src="pallavi.png" alt="Pallavi"></div><div class="slide-intro"><h2>PALLAVI</h2><span>OPERATION HEAD</span><p>Helping coordinate the operations and making sure everything comes together smoothly.</p></div></div>
-  <div class="team-slide"><div class="slide-photo"><img src="saurabh.png" alt="Saurabh"></div><div class="slide-intro"><h2>SAURABH</h2><span>SALES EXECUTIVE HEAD</span><p>Supporting the sales process and helping connect our product with students and customers.</p></div></div>
-  <div class="team-slide"><div class="slide-photo"><img src="sufiya.png" alt="Sufiya"></div><div class="slide-intro"><h2>SUFIYA</h2><span>SOCIAL MEDIA HEAD</span><p>Helping our project connect with students through creative social media communication.</p></div></div>
-  <div class="team-slide"><div class="slide-photo"><img src="mitali.png" alt="Mithali"></div><div class="slide-intro"><h2>MITHALI</h2><span>STALL DESIGN &amp; VISUAL MANAGEMENT HEAD</span><p>Giving the project its visual identity and bringing our creative ideas to life.</p></div></div>
-  <div class="team-slide"><div class="slide-photo"><img src="abhinandan.png" alt="Abhinandan"></div><div class="slide-intro"><h2>ABHINANDAN</h2><span>CUSTOMER RELATION &amp; HOSPITALITY</span><p>Helping students and customers feel welcome and creating a positive experience.</p></div></div>
-  <div class="team-slide"><div class="slide-photo"><img src="shwetha.png" alt="Shwetha"></div><div class="slide-intro"><h2>SHWETHA</h2><span>CUSTOMER ENGAGEMENT &amp; ACTIVITIES HEAD</span><p>Creating engaging activities and helping make the Mysuru Mithra experience memorable.</p></div></div>
-  <div class="team-slide"><div class="slide-photo"><img src="aman.png" alt="Aman"></div><div class="slide-intro"><h2>AMAN</h2><span>ADVISORY &amp; CREATIVE SUPPORT</span><p>Supporting the team with ideas, creativity and valuable guidance throughout the project.</p></div></div>
-</section>
-<button class="team-arrow team-arrow-right" id="teamNext" type="button" aria-label="Next team member">→</button>
+<div class="splash" id="splash" aria-hidden="true">
+  <div class="splash-stage">
+    <div class="splash-coin"><img class="splash-logo" src="logo.webp" alt="" width="500" height="500" fetchpriority="high"><span class="splash-sheen"></span></div>
+    <span class="splash-shadow"></span>
+  </div>
+  <p class="splash-tagline">A Bite of Tradition, A Touch of Sweetness</p>
+  <div class="splash-loader"><span></span></div>
 </div>
 
-<section class="sticker-game">
-  <div class="game-ornament">❧ ✦ ❧</div>
-  <h2>MYSTERY STICKER</h2>
+<nav class="journey-topbar" aria-label="Page">
+  <a href="index.html" class="journey-back" aria-label="Back to home">←</a>
+  <span class="journey-topbar-title" aria-hidden="true">Mysuru Mithra</span>
+</nav>
+<div class="journey-container">
+<div class="journey-logo"><img src="logo.webp" alt="Mysuru Mithra" width="500" height="500" fetchpriority="high"></div>
+<header class="journey-header"><div class="journey-ornament" aria-hidden="true">❧ ♥ ❧</div><h1>MEET OUR TEAM</h1><p>The people behind Mysuru Mithra <span aria-hidden="true">♥</span></p></header>
+
+<main>
+<div class="team-slider-wrapper" data-reveal>
+<button class="team-arrow team-arrow-left" id="teamPrev" type="button" aria-label="Previous team member" aria-controls="teamSlider">←</button>
+<section class="team-slider" id="teamSlider" aria-label="Team members" tabindex="0">
+  <div class="team-slide"><div class="slide-photo"><img src="rashi.webp" alt="Rashi" width="413" height="604"></div><div class="slide-intro"><h2>RASHI</h2><span>PROJECT MANAGER</span><p>Bringing the team together, coordinating ideas and guiding the project from planning to execution.</p></div></div>
+  <div class="team-slide"><div class="slide-photo"><img src="srushti.webp" alt="Shrushti" width="369" height="676" loading="lazy" fetchpriority="low"></div><div class="slide-intro"><h2>SHRUSHTI</h2><span>FINANCE HEAD</span><p>Managing the financial side of the project and helping keep our plans on track.</p></div></div>
+  <div class="team-slide"><div class="slide-photo"><img src="yashashree.webp" alt="Yashashree" width="365" height="683" loading="lazy" fetchpriority="low"></div><div class="slide-intro"><h2>YASHASHREE</h2><span>MARKETING HEAD</span><p>Turning our ideas into meaningful communication and helping Mysuru Mithra reach its audience.</p></div></div>
+  <div class="team-slide"><div class="slide-photo"><img src="pallavi.webp" alt="Pallavi" width="377" height="661" loading="lazy" fetchpriority="low"></div><div class="slide-intro"><h2>PALLAVI</h2><span>OPERATION HEAD</span><p>Helping coordinate the operations and making sure everything comes together smoothly.</p></div></div>
+  <div class="team-slide"><div class="slide-photo"><img src="saurabh.webp" alt="Saurabh" width="391" height="638" loading="lazy" fetchpriority="low"></div><div class="slide-intro"><h2>SAURABH</h2><span>SALES EXECUTIVE HEAD</span><p>Supporting the sales process and helping connect our product with students and customers.</p></div></div>
+  <div class="team-slide"><div class="slide-photo"><img src="sufiya.webp" alt="Sufiya" width="405" height="615" loading="lazy" fetchpriority="low"></div><div class="slide-intro"><h2>SUFIYA</h2><span>TECHNICAL &amp; SOCIAL MEDIA HEAD</span><p>Building the Mysuru Mithra website and QR feedback system, and keeping students connected through creative social media.</p></div></div>
+  <div class="team-slide"><div class="slide-photo"><img src="mitali.webp" alt="Mithali" width="420" height="594" loading="lazy" fetchpriority="low"></div><div class="slide-intro"><h2>MITHALI</h2><span>STALL DESIGN &amp; VISUAL MANAGEMENT HEAD</span><p>Giving the project its visual identity and bringing our creative ideas to life.</p></div></div>
+  <div class="team-slide"><div class="slide-photo"><img src="abhinandan.webp" alt="Abhinandan" width="422" height="591" loading="lazy" fetchpriority="low"></div><div class="slide-intro"><h2>ABHINANDAN</h2><span>CUSTOMER RELATION &amp; HOSPITALITY</span><p>Helping students and customers feel welcome and creating a positive experience.</p></div></div>
+  <div class="team-slide"><div class="slide-photo"><img src="shwetha.webp" alt="Shwetha" width="410" height="609" loading="lazy" fetchpriority="low"></div><div class="slide-intro"><h2>SHWETHA</h2><span>CUSTOMER ENGAGEMENT &amp; ACTIVITIES HEAD</span><p>Creating engaging activities and helping make the Mysuru Mithra experience memorable.</p></div></div>
+  <div class="team-slide"><div class="slide-photo"><img src="aman.webp" alt="Aman" width="407" height="612" loading="lazy" fetchpriority="low"></div><div class="slide-intro"><h2>AMAN</h2><span>ADVISORY &amp; CREATIVE SUPPORT</span><p>Supporting the team with ideas, creativity and valuable guidance throughout the project.</p></div></div>
+</section>
+<button class="team-arrow team-arrow-right" id="teamNext" type="button" aria-label="Next team member" aria-controls="teamSlider">→</button>
+</div>
+<div class="team-dots" id="teamDots" role="group" aria-label="Choose a team member"></div>
+<p class="team-counter sr-only" id="teamCounter" aria-live="polite" hidden></p>
+
+<section class="sticker-game" data-reveal aria-labelledby="stickerHeading">
+  <div class="game-ornament" aria-hidden="true">❧ ✦ ❧</div>
+  <h2 id="stickerHeading">MYSTERY STICKER</h2>
   <p class="game-subtitle">Choose any game, win it, and unlock 3 surprise stickers from our collection of 20!</p>
 
   <div class="mystery-boxes game-launchers">
-    <button class="mystery-box game-launcher" type="button" data-start-game="1"><span>🥤</span><b>CUP SHUFFLE</b><small>Follow the hidden ⭐</small></button>
-    <button class="mystery-box game-launcher" type="button" data-start-game="2"><span>🃏</span><b>MYSTERY MATCH</b><small>Find a matching pair</small></button>
-    <button class="mystery-box game-launcher" type="button" data-start-game="3"><span>🔎</span><b>FIND THE ODD ONE</b><small>Spot the different tile</small></button>
+    <button class="mystery-box game-launcher" type="button" data-start-game="4" data-tilt aria-pressed="false"><i class="launcher-badge">NEW</i><span aria-hidden="true">🍽️</span><b>SWEET CATCH</b><small>Catch the sweets, dodge chillies</small></button>
+    <button class="mystery-box game-launcher" type="button" data-start-game="1" data-tilt aria-pressed="false"><span aria-hidden="true">🥤</span><b>CUP SHUFFLE</b><small>Follow the hidden ⭐</small></button>
+    <button class="mystery-box game-launcher" type="button" data-start-game="2" data-tilt aria-pressed="false"><span aria-hidden="true">🃏</span><b>MYSTERY MATCH</b><small>Find a matching pair</small></button>
+    <button class="mystery-box game-launcher" type="button" data-start-game="3" data-tilt aria-pressed="false"><span aria-hidden="true">🔎</span><b>FIND THE ODD ONE</b><small>Spot the different tile</small></button>
   </div>
 
   <div class="mystery-game-area" id="mysteryGameArea" hidden>
-    <p class="game-status" id="gameStatus"></p>
+    <p class="game-status" id="gameStatus" aria-live="polite"></p>
     <div class="game-grid" id="gameGrid"></div>
   </div>
 
   <div class="sticker-win" id="stickerWin" hidden>
-    <div class="win-icon">🎉</div><h3>YOU WON!</h3><p>Your 3-sticker surprise pack is ready!</p>
+    <div class="win-icon" aria-hidden="true">🎉</div><h3>YOU WON!</h3><p>Your 3-sticker surprise pack is ready!</p>
     <div class="winner-stickers" id="winnerStickers"></div>
+    <div class="win-share">
+      <button type="button" class="wa-button" id="shareAllStickers" hidden><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 11.9 11.9 0 0 0 4.6 4c1.7.7 2.4.8 3.2.7a2.8 2.8 0 0 0 1.8-1.3 2.3 2.3 0 0 0 .2-1.3c-.1-.1-.3-.2-.6-.3Z"/></svg>SEND ALL 3 TO WHATSAPP</button>
+      <button type="button" class="play-mystery-again" id="downloadAllStickers">DOWNLOAD ALL 3</button>
+    </div>
+    <p class="sticker-howto">WhatsApp-ready stickers (512 × 512 WebP). Send one in any chat, then tap it and choose <b>Add to Favourites ⭐</b> to keep it in your sticker tray.</p>
+    <p class="sticker-share-status" id="winShareStatus" role="status"></p>
     <button type="button" class="play-mystery-again" id="playMysteryAgain">PLAY ANOTHER GAME 🔀</button>
   </div>
-  <p class="game-note">3 games • Medium difficulty • 20 sticker rewards • 3 stickers per win ❤️</p>
+  <p class="game-note">4 games • Medium difficulty • 20 sticker rewards • 3 stickers per win ❤️</p>
+
+  <div class="sticker-album" id="stickerAlbum" aria-labelledby="albumHeading">
+    <div class="album-head">
+      <h3 id="albumHeading">YOUR STICKER ALBUM</h3>
+      <p class="album-progress"><b id="albumCount">0</b> / 20 collected</p>
+      <div class="album-bar" aria-hidden="true"><span id="albumBar"></span></div>
+    </div>
+    <div class="album-grid" id="albumGrid"></div>
+    <p class="album-note">Win games to fill your album. Tap a sticker to send it on WhatsApp. Your album is saved in this browser.</p>
+  </div>
 </section>
 
-<section class="journey-ending"><div>❧ ♥ ❧</div><h2>Thank You for Being<br>Part of Our Journey!</h2><p>From our team to you — thank you for experiencing Mysuru Mithra.</p><a href="index.html" class="back-rating-button">← BACK TO RATE OUR DISHES</a></section>
-<footer class="journey-footer"><p>© 2026 Mysuru Mithra</p><p>Team PM Pioneer</p></footer>
+<dialog class="rating-box sticker-viewer" id="stickerViewer" closedby="any" aria-labelledby="stickerViewerTitle">
+  <button class="close-rating" type="button" data-close-viewer aria-label="Close">×</button>
+  <img id="stickerViewerImg" src="stickers/whatsapp/sticker14_gold-star.webp" alt="" width="512" height="512" fetchpriority="low">
+  <h2 id="stickerViewerTitle">Sticker</h2>
+  <div class="sticker-actions">
+    <button type="button" class="wa-button" id="stickerViewerShare" hidden><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 11.9 11.9 0 0 0 4.6 4c1.7.7 2.4.8 3.2.7a2.8 2.8 0 0 0 1.8-1.3 2.3 2.3 0 0 0 .2-1.3c-.1-.1-.3-.2-.6-.3Z"/></svg>SEND ON WHATSAPP</button>
+    <a class="play-mystery-again sticker-download" id="stickerViewerDownload" href="stickers/whatsapp/sticker14_gold-star.webp" download>DOWNLOAD</a>
+  </div>
+  <p class="sticker-howto">Send it in any WhatsApp chat, then tap it and choose <b>Add to Favourites ⭐</b> to keep it.</p>
+  <p class="sticker-share-status" id="viewerShareStatus" role="status"></p>
+</dialog>
+
+<section class="journey-ending" data-reveal><div aria-hidden="true">❧ ♥ ❧</div><h2>Thank You for Being<br>Part of Our Journey!</h2><p>From our team to you, thank you for experiencing Mysuru Mithra.</p><a href="index.html" class="back-rating-button">← BACK TO RATE OUR DISHES</a></section>
+</main>
+<footer class="journey-footer"><div class="footer-info"><p>© 2026 Mysuru Mithra</p><p>Team PM Pioneer</p></div><a class="footer-admin" href="admin.html"><svg width="10" height="10" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>ADMIN<span class="footer-admin-extra"> PORTAL LOGIN</span></a></footer>
 </div>
-<script src="script_updated.js"></script>
 </body></html>

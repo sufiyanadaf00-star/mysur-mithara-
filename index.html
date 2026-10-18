@@ -4,117 +4,174 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mysuru Mithra | Taste • Rate • Share</title>
-<link rel="stylesheet" href="style_updated.css">
+<meta name="description" content="Taste it. Rate it. Tell us what you think. Rate Mysuru Avalakki and Rose Mithaas from Team PM Pioneer.">
+<meta name="theme-color" content="#4b2816">
+<link rel="icon" href="favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap">
+<link rel="stylesheet" href="style_updated.css?v=20261018b">
+<link rel="stylesheet" href="enhance.css?v=20261018b">
+<script>
+/* Home page loading screen: on every fresh load and every reload, but not when arriving
+   from another page of this site (that navigation already animates the logo across). */
+(function(){var d=document.documentElement;try{var n=performance.getEntriesByType("navigation")[0],r=document.referrer,internal=!!r&&new URL(r).origin===location.origin;if((n&&n.type==="reload")||!internal)d.classList.add("splash-on")}catch(e){d.classList.add("splash-on")}})();
+</script>
+<script defer src="enhance.js?v=20261018b"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script defer src="config.js?v=20261018b"></script>
+<script defer src="script_updated.js?v=20261018b"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/ScrollTrigger.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/SplitText.min.js"></script>
+<script defer src="motion.js?v=20261018b"></script>
 </head>
-<body>
+<body class="home-page">
+<div class="splash" id="splash" aria-hidden="true">
+  <div class="splash-stage">
+    <div class="splash-coin"><img class="splash-logo" src="logo.webp" alt="" width="500" height="500" fetchpriority="high"><span class="splash-sheen"></span></div>
+    <span class="splash-shadow"></span>
+  </div>
+  <p class="splash-tagline">A Bite of Tradition, A Touch of Sweetness</p>
+  <div class="splash-loader"><span></span></div>
+</div>
+
 <div class="page">
-  <div class="background-food background-left"><img src="avalaki.png" alt=""></div>
-  <div class="background-food background-right"><img src="rose.png" alt=""></div>
+  <div class="background-food background-left" aria-hidden="true"><img src="avalaki.webp" alt="" width="612" height="408"></div>
+  <div class="background-food background-right" aria-hidden="true"><img src="rose.webp" alt="" width="558" height="447"></div>
 
   <header class="hero">
-    <div class="logo-wrap"><img src="logo.png" alt="Mysuru Mithra Logo" class="logo"></div>
-    <p class="team-label">TEAM PM PIONEER • STUDENT FEEDBACK</p>
-    <h1>Welcome to</h1>
-    <h2>Mysuru Mithra</h2>
-    <p class="tagline">A Bite of Tradition, A Touch of Sweetness</p>
-    <div class="decorative-line"><span>❧</span><b>♥</b><span>❧</span></div>
-    <p class="intro-text">We would love to know how you liked our dishes.<br>Please choose a dish to rate your experience.</p>
+    <div class="logo-wrap"><img src="logo.webp" alt="Mysuru Mithra Logo" class="logo" width="500" height="500" fetchpriority="high"></div>
+    <div class="hero-copy">
+      <p class="team-label">TEAM PM PIONEER • STUDENT FEEDBACK</p>
+      <h1><span class="hero-kicker">Welcome to</span> <span class="hero-brand">Mysuru Mithra</span></h1>
+      <p class="tagline">A Bite of Tradition, A Touch of Sweetness</p>
+      <div class="decorative-line" aria-hidden="true"><span>❧</span><b>♥</b><span>❧</span></div>
+      <p class="intro-text">We would love to know how you liked our dishes.<br>Please choose a dish to rate your experience.</p>
+      <a class="hero-cta" href="#dishes">RATE A DISH <span aria-hidden="true">↓</span></a>
+    </div>
   </header>
 
   <main>
-    <section class="dish-section">
-      <div class="section-heading">
-        <p class="small-heading">❧ &nbsp; OUR SPECIALS &nbsp; ❧</p>
-        <h3>Choose a Dish to Rate</h3>
+    <section class="dish-section" id="dishes" aria-labelledby="dishHeading">
+      <div class="section-heading" data-reveal>
+        <p class="small-heading eyebrow">OUR SPECIALS</p>
+        <h2 id="dishHeading">Choose a Dish to Rate</h2>
         <p>Taste it. Rate it. Tell us what you think.</p>
       </div>
       <div class="dish-container">
-        <article class="dish-card avalakki-card">
-          <div class="dish-image-container"><img src="avalaki.png" alt="Mysuru Avalakki" class="dish-image"></div>
+        <article class="dish-card avalakki-card" data-reveal="left" data-tilt="9">
+          <div class="dish-image-container"><img src="avalaki.webp" alt="Mysuru Avalakki" class="dish-image" width="612" height="408"></div>
           <div class="dish-content">
             <p class="dish-category green-text">TRADITIONAL SAVOURY</p>
             <h3>Mysuru<br>Avalakki</h3>
-            <div class="mini-line green-line">♥</div>
+            <div class="mini-line green-line" aria-hidden="true">♥</div>
             <p class="dish-description">A classic blend of tradition and taste, prepared with fresh flavours and a delicious crunchy finish.</p>
-            <button class="rate-button green-button" onclick="openRating('Mysuru Avalakki')">RATE NOW <span>→</span></button>
+            <button class="rate-button green-button" type="button" onclick="openRating('Mysuru Avalakki')" aria-label="Rate now: Mysuru Avalakki">RATE NOW <span aria-hidden="true">→</span></button>
           </div>
         </article>
-        <article class="dish-card mithaas-card">
-          <div class="dish-image-container"><img src="rose.png" alt="Rose Mithaas" class="dish-image"></div>
+        <article class="dish-card mithaas-card" data-reveal="right" data-tilt="9">
+          <div class="dish-image-container"><img src="rose.webp" alt="Rose Mithaas" class="dish-image" width="558" height="447"></div>
           <div class="dish-content">
             <p class="dish-category red-text">SIGNATURE SWEET</p>
             <h3>Rose<br>Mithaas</h3>
-            <div class="mini-line red-line">♥</div>
+            <div class="mini-line red-line" aria-hidden="true">♥</div>
             <p class="dish-description">A delicate sweet treat made with rich flavours and traditional sweetness.</p>
-            <button class="rate-button red-button" onclick="openRating('Rose Mithaas')">RATE NOW <span>→</span></button>
+            <button class="rate-button red-button" type="button" onclick="openRating('Rose Mithaas')" aria-label="Rate now: Rose Mithaas">RATE NOW <span aria-hidden="true">→</span></button>
           </div>
         </article>
       </div>
     </section>
 
-    <section class="live-rating-section">
+    <section class="live-rating-section" data-reveal aria-labelledby="ratingsHeading">
       <div class="rating-heading">
-        <p>❧ &nbsp; LIVE FEEDBACK &nbsp; ❧</p>
-        <h2>What Students Think</h2>
+        <p class="eyebrow">LIVE FEEDBACK</p>
+        <h2 id="ratingsHeading">What Students Think</h2>
         <span>Ratings update automatically after feedback is saved.</span>
       </div>
-      <div class="rating-container">
+      <div class="rating-container" aria-live="polite">
         <div class="rating-card">
-          <div class="rating-dish"><img src="avalaki.png" alt="Mysuru Avalakki"><div><h3>Mysuru Avalakki</h3><div class="stars">★★★★★</div></div></div>
-          <div class="rating-score"><strong id="avalakkiAverage">—</strong><span>/ 5</span></div>
+          <div class="rating-dish"><img src="avalaki.webp" alt="" width="612" height="408"><div><h3>Mysuru Avalakki</h3><div class="stars star-meter" aria-hidden="true">★★★★★<span class="star-meter-fill">★★★★★</span></div></div></div>
+          <div class="rating-score"><strong id="avalakkiAverage" class="is-empty">–</strong><span>/ 5</span></div>
           <p id="avalakkiCount">No ratings yet</p>
         </div>
         <div class="rating-card">
-          <div class="rating-dish"><img src="rose.png" alt="Rose Mithaas"><div><h3>Rose Mithaas</h3><div class="stars">★★★★★</div></div></div>
-          <div class="rating-score"><strong id="mithaasAverage">—</strong><span>/ 5</span></div>
+          <div class="rating-dish"><img src="rose.webp" alt="" width="558" height="447"><div><h3>Rose Mithaas</h3><div class="stars star-meter" aria-hidden="true">★★★★★<span class="star-meter-fill">★★★★★</span></div></div></div>
+          <div class="rating-score"><strong id="mithaasAverage" class="is-empty">–</strong><span>/ 5</span></div>
           <p id="mithaasCount">No ratings yet</p>
         </div>
       </div>
-      <button class="view-rating-button" type="button" onclick="openDashboardInfo()">VIEW ALL RATINGS &amp; REVIEWS <span>↗</span></button>
+      <button class="ratings-retry" id="ratingsRetry" type="button" hidden>TRY AGAIN</button>
+      <button class="view-rating-button" type="button" onclick="openReviews()" aria-haspopup="dialog">VIEW ALL RATINGS &amp; REVIEWS <span aria-hidden="true">↗</span></button>
     </section>
 
-    <a href="journey.html" class="explore-journey-button">MEET OUR TEAM <span>→</span></a>
-    <section class="thank-you"><div class="thank-you-line">❧ ♥ ❧</div><h2>Thank You for Your Time &amp; Feedback!</h2></section>
+    <a href="journey.html" class="explore-journey-button" data-reveal>MEET OUR TEAM <span aria-hidden="true">→</span></a>
+    <section class="thank-you" data-reveal><div class="thank-you-line" aria-hidden="true">❧ ♥ ❧</div><h2>Thank You for Your Time &amp; Feedback!</h2></section>
   </main>
 
-  <footer><p>© 2026 Mysuru Mithra • Team PM Pioneer</p><p>Plan • Manage • Deliver • Delight</p></footer>
+  <footer>
+    <div class="footer-info"><p>© 2026 Mysuru Mithra • Team PM Pioneer</p><p>Plan • Manage • Deliver • Delight</p></div>
+    <a class="footer-admin" href="admin.html"><svg width="10" height="10" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>ADMIN<span class="footer-admin-extra"> PORTAL LOGIN</span></a>
+  </footer>
 </div>
 
-<div class="rating-modal" id="ratingModal">
-  <div class="rating-box">
-    <button class="close-rating" onclick="closeRating()">×</button>
-    <img id="ratingDishImage" src="" alt="Dish">
+<dialog class="rating-box" id="ratingModal" closedby="any" aria-labelledby="ratingDishName">
+  <form id="ratingForm" novalidate>
+    <button class="close-rating" type="button" onclick="closeRating()" aria-label="Close">×</button>
+    <img id="ratingDishImage" src="avalaki.webp" alt="" width="120" height="120" fetchpriority="low">
     <h2 id="ratingDishName">Mysuru Avalakki</h2>
     <p class="rating-question">How did you like this dish?</p>
-    <label class="feedback-name-label">Your Name
-      <input id="feedbackName" type="text" maxlength="80" placeholder="Enter your name" autocomplete="name">
+    <label class="feedback-name-label" for="feedbackName">Your Name
+      <input id="feedbackName" type="text" maxlength="80" placeholder="Enter your name" autocomplete="name" required>
     </label>
-    <div class="star-rating">
-      <button type="button" onclick="selectStar(1)">★</button>
-      <button type="button" onclick="selectStar(2)">★</button>
-      <button type="button" onclick="selectStar(3)">★</button>
-      <button type="button" onclick="selectStar(4)">★</button>
-      <button type="button" onclick="selectStar(5)">★</button>
+    <div class="star-rating" role="group" aria-label="Your rating">
+      <button type="button" onclick="selectStar(1)" aria-label="1 star: Poor" aria-pressed="false" style="--i:0">★</button>
+      <button type="button" onclick="selectStar(2)" aria-label="2 stars: Could be better" aria-pressed="false" style="--i:1">★</button>
+      <button type="button" onclick="selectStar(3)" aria-label="3 stars: Good" aria-pressed="false" style="--i:2">★</button>
+      <button type="button" onclick="selectStar(4)" aria-label="4 stars: Very Good" aria-pressed="false" style="--i:3">★</button>
+      <button type="button" onclick="selectStar(5)" aria-label="5 stars: Excellent" aria-pressed="false" style="--i:4">★</button>
     </div>
-    <p id="selectedRating">Select your rating</p>
+    <p id="selectedRating" aria-live="polite">Select your rating</p>
+    <label class="sr-only" for="reviewText">Your review (optional)</label>
     <textarea id="reviewText" placeholder="Tell us what you think (optional)" maxlength="250"></textarea>
-    <button class="submit-rating" id="submitRatingButton" onclick="submitRating()">SUBMIT RATING</button>
-    <p id="ratingStatus" class="rating-status"></p>
-  </div>
-</div>
+    <p class="rating-note">Your first name, rating and review may appear in Student Reviews.</p>
+    <button class="submit-rating" id="submitRatingButton" type="submit">SUBMIT RATING</button>
+    <p id="ratingStatus" class="rating-status" role="status"></p>
+  </form>
+</dialog>
 
-<div class="rating-modal" id="dashboardInfoModal">
-  <div class="rating-box">
-    <button class="close-rating" onclick="closeDashboardInfo()">×</button>
-    <div class="mini-line red-line">♥</div>
-    <h2>Team Feedback</h2>
-    <p class="rating-question">All student feedback is stored in the private team dashboard.</p>
-    <a class="submit-rating dashboard-link" href="admin.html">OPEN TEAM DASHBOARD →</a>
+<dialog class="reviews-dialog" id="reviewsDialog" closedby="any" aria-labelledby="reviewsTitle">
+  <div class="reviews-shell">
+    <header class="reviews-header">
+      <button class="close-rating" type="button" onclick="closeReviews()" aria-label="Close">×</button>
+      <img class="reviews-sticker reviews-sticker-left" src="stickers/whatsapp/sticker14_gold-star.webp" alt="" width="512" height="512" fetchpriority="low">
+      <img class="reviews-sticker reviews-sticker-right" src="stickers/whatsapp/sticker7_sweet-heart.webp" alt="" width="512" height="512" fetchpriority="low">
+      <p class="eyebrow reviews-eyebrow">STUDENT REVIEWS</p>
+      <h2 id="reviewsTitle">What Students Are Saying</h2>
+      <div class="reviews-summary" id="reviewsSummary"></div>
+      <div class="reviews-filters">
+        <div class="filter-row" role="group" aria-label="Filter by stars" id="starFilters">
+          <button type="button" class="filter-chip" data-stars="all" aria-pressed="true">All</button>
+          <button type="button" class="filter-chip" data-stars="5" aria-pressed="false">5 ★</button>
+          <button type="button" class="filter-chip" data-stars="4" aria-pressed="false">4 ★</button>
+          <button type="button" class="filter-chip" data-stars="3" aria-pressed="false">3 ★</button>
+          <button type="button" class="filter-chip" data-stars="2" aria-pressed="false">2 ★</button>
+          <button type="button" class="filter-chip" data-stars="1" aria-pressed="false">1 ★</button>
+        </div>
+        <div class="filter-row" role="group" aria-label="Filter by dish" id="dishFilters">
+          <button type="button" class="filter-chip is-quiet" data-dish="all" aria-pressed="true">All dishes</button>
+          <button type="button" class="filter-chip is-quiet" data-dish="Mysuru Avalakki" aria-pressed="false">Mysuru Avalakki</button>
+          <button type="button" class="filter-chip is-quiet" data-dish="Rose Mithaas" aria-pressed="false">Rose Mithaas</button>
+        </div>
+      </div>
+    </header>
+    <div class="reviews-body">
+      <p class="reviews-count" id="reviewsCount" aria-live="polite"></p>
+      <div class="reviews-grid" id="reviewsGrid"></div>
+    </div>
+    <footer class="reviews-footer"><a href="admin.html">Team member? Open the admin dashboard →</a></footer>
   </div>
-</div>
-
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script src="config.js"></script>
-<script src="script_updated.js"></script>
+</dialog>
 </body>
 </html>
